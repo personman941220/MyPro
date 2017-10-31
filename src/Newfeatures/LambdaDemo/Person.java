@@ -1,4 +1,4 @@
-package Newfeatures;
+package Newfeatures.LambdaDemo;
 
 public class Person {
 	private int Id;
