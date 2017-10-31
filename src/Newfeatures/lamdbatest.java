@@ -28,14 +28,21 @@ public class lamdbatest {
 			System.out.println(per);
 		}
 	}
-	//用于处理字符串。trim,upper,substring都可以使用。
-	public String strHandler(String str,MyFun my){
+
+	// 用于处理字符串。trim,upper,substring都可以使用。
+	public String strHandler(String str, MyFun my) {
 		return my.getValue(str);
 	}
-	
+
 	@Test
-	public void Test2(){
-		String Trimstr = strHandler("可以的，666 ",(str) -> str.trim());
+	public void Test2() {
+		String Trimstr = strHandler("可以的，666 ", (str) -> str.trim());
 		System.out.println(Trimstr);
+
+		String Upper = strHandler("sdjis", (str) -> str.toUpperCase());
+		System.out.println(Upper);
+
+		String subStr = strHandler("sijisa", (str) -> str.substring(3));
+		System.out.println(subStr);
 	}
 }
