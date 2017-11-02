@@ -40,6 +40,8 @@ public class TestLambda2 {
 	public void test3() {
 		String newStr = strHandler("\t\t\t\t 伟哥牛逼！ ", (str) -> str.trim());
 		System.out.println(newStr);
+		Function<String, String> f = String::trim;// 使用方法引用的方式。
+		System.out.println(f.apply("\t\t\t\t 伟哥牛逼！ "));
 	}
 
 	// 处理字符串
@@ -55,6 +57,7 @@ public class TestLambda2 {
 		for (Integer num : numList) {
 			System.out.println(num);
 		}
+
 	}
 
 	// 产生一些整数，并放入集合
