@@ -3,7 +3,9 @@ package Newfeatures.LambdaDemo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import static java.util.Comparator.comparing;
 
 import org.junit.Test;
 
@@ -28,6 +30,8 @@ public class lamdbatest {
 			System.out.println(per);
 		}
 	}
+	
+
 
 	// 用于处理字符串。trim,upper,substring都可以使用。
 	public String strHandler(String str, MyFun my) {
@@ -35,7 +39,7 @@ public class lamdbatest {
 	}
 
 	@Test
-	public void Test2() {
+	public void Test3() {
 		String Trimstr = strHandler("可以的，666 ", (str) -> str.trim());
 		System.out.println(Trimstr);
 
