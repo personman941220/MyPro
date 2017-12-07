@@ -2,6 +2,7 @@ package Newfeatures.StreamDemo;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.junit.Test;
 import static java.util.stream.Collectors.toList;
@@ -21,5 +22,32 @@ public class StreamDemo {
 				.limit(3)// 限制只选择最前面的三个
 				.collect(toList());// 将结果返回给集合。
 		System.out.println(threeHighCaloricDishNames);
+	}
+	@Test
+	public void test2(){
+		/*
+		 * java.lang.IllegalStateException: stream has already been operated upon or closed
+		 * 流属于遍历操作，即使用一次后就会被销毁，重复的使用将导致报错。
+		 */
+		List<String> title = Arrays.asList("java8","In","Action");
+		Stream<String> s = title.stream();
+		s.forEach(System.out::println);
+		s.forEach(System.out::println);
+	}
+	@Test
+	public void test3(){
+		List<String> names = 
+				menu.stream()
+					.filter(d -> {
+						System.out.println("filtering"+d.getName());
+						return d.getCalories() >300;
+					})
+					.map(d -> {
+							System.out.println("mapping"+d.getName());
+							return d.getName();
+					})
+					.limit(3)
+					.collect(toList());
+		System.out.println(names);
 	}
 }
